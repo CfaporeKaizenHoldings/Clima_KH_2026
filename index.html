@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>One Page | Clima laboral 2026</title>
+
+<style>
+
+:root{
+--bg:#f4f7fb;
+--surface:#ffffff;
+--text:#142534;
+--muted:#617180;
+--line:#d9e3ec;
+--brand:#223d53;
+--brand-2:#3a6077;
+--soft:#eaf2f8;
+--shadow:0 18px 48px rgba(20,37,52,.08);
+--max:1320px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+
+body{
+font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+color:var(--text);
+background:
+radial-gradient(circle at top right, rgba(34,61,83,.08), transparent 22%),
+linear-gradient(180deg,#f8fbfd 0%,#eff4f8 100%);
+line-height:1.35;
+}
+
+.wrap{
+width:min(var(--max), calc(100% - 40px));
+margin:0 auto;
+}
+
+.page{
+padding:24px 0 30px;
+}
+
+.card{
+background:rgba(255,255,255,.92);
+border-radius:32px;
+box-shadow:var(--shadow);
+overflow:hidden;
+}
+
+.top{
+padding:28px 30px 20px;
+border-bottom:1px solid var(--line);
+background:linear-gradient(180deg,#ffffff,#f7fbfe);
+}
+
+.eyebrow{
+display:inline-block;
+padding:8px 12px;
+border-radius:999px;
+background:var(--soft);
+color:var(--brand);
+font-size:12px;
+font-weight:800;
+letter-spacing:.08em;
+text-transform:uppercase;
+margin-bottom:14px;
+}
+
+h1{
+margin:0;
+font-size:clamp(2rem,4vw,3.8rem);
+letter-spacing:-.05em;
+color:var(--brand);
+}
+
+.subtitle{
+margin-top:6px;
+font-size:1rem;
+font-weight:600;
+color:var(--muted);
+}
+
+.intro{
+margin-top:12px;
+font-size:1rem;
+color:var(--muted);
+text-align:justify;
+}
+
+.highlight-green{
+color:#2f7a3e;
+font-weight:800;
+}
+
+.hero-stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px;
+margin-top:22px;
+}
+
+.hero-stat{
+background:#fff;
+border:1px solid var(--line);
+border-radius:22px;
+padding:18px;
+transition:all .25s ease;
+}
+
+.hero-stat:hover{
+transform:translateY(-4px);
+box-shadow:0 18px 36px rgba(20,37,52,.10);
+}
+
+.hero-label{
+font-size:.8rem;
+font-weight:700;
+text-transform:uppercase;
+color:var(--muted);
+margin-bottom:10px;
+}
+
+.hero-value{
+font-size:clamp(2rem,4vw,3.2rem);
+font-weight:800;
+letter-spacing:-.06em;
+color:var(--brand);
+}
+
+.hero-meta{
+margin-top:6px;
+color:var(--muted);
+font-size:.88rem;
+}
+
+.content{
+padding:26px 30px 30px;
+}
+
+.main-table{
+background:#fff;
+border:1px solid var(--line);
+border-radius:24px;
+overflow:hidden;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+thead th{
+text-align:left;
+padding:16px 18px;
+background:linear-gradient(180deg,#edf4f9,#e6eef5);
+color:var(--brand);
+font-size:.88rem;
+border-bottom:1px solid var(--line);
+}
+
+tbody td{
+padding:16px 18px;
+border-bottom:1px solid var(--line);
+font-size:.93rem;
+vertical-align:top;
+}
+
+tbody tr:last-child td{
+border-bottom:none;
+}
+
+.critical{
+font-weight:700;
+color:var(--brand);
+}
+
+.indicator{
+color:#29485d;
+font-weight:600;
+}
+
+.decision{
+color:#334856;
+}
+
+.cta-wrap{
+margin-top:26px;
+display:flex;
+justify-content:flex-end;
+}
+
+.cta-button{
+background:var(--brand);
+color:#fff;
+text-decoration:none;
+padding:14px 24px;
+border-radius:999px;
+font-size:.9rem;
+font-weight:600;
+letter-spacing:.02em;
+box-shadow:0 10px 22px rgba(34,61,83,.18);
+transition:all .28s ease;
+}
+
+.cta-button:hover{
+background:#2c506c;
+transform:translateY(-3px);
+box-shadow:0 18px 32px rgba(34,61,83,.25);
+}
+
+@media (max-width:1100px){
+
+.hero-stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media (max-width:700px){
+
+.hero-stats{
+grid-template-columns:1fr;
+}
+
+.main-table{
+overflow:auto;
+}
+
+table{
+min-width:860px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<main class="page">
+<div class="wrap">
+
+<section class="card">
+
+<div class="top">
+
+<div class="eyebrow">One Page Ejecutivo</div>
+
+<h1>Clima laboral 2026</h1>
+
+<div class="subtitle">Kaizen Holdings, Inveca, Socado</div>
+
+<p class="intro">
+La primera evaluación de clima alcanzó una participación global del
+<span class="highlight-green">86%</span>,
+consolidando la opinión de <strong>213 colaboradores</strong>.
+Este alto nivel de respuesta garantiza que los resultados son estadísticamente representativos y reflejan el sentir genuino de la organización.
+</p>
+
+<div class="hero-stats">
+
+<div class="hero-stat">
+<div class="hero-label">Socado</div>
+<div class="hero-value">93%</div>
+<div class="hero-meta">119 de 134 trabajadores</div>
+</div>
+
+<div class="hero-stat">
+<div class="hero-label">Corporación Inveca</div>
+<div class="hero-value">89%</div>
+<div class="hero-meta">71 de 76 trabajadores</div>
+</div>
+
+<div class="hero-stat">
+<div class="hero-label">Kaizen Holdings</div>
+<div class="hero-value">64%</div>
+<div class="hero-meta">23 de 36 trabajadores</div>
+</div>
+
+<div class="hero-stat">
+<div class="hero-label">Participación global</div>
+<div class="hero-value">86%</div>
+<div class="hero-meta">213 colaboradores participaron en la evaluación.</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="content">
+
+<div class="main-table">
+
+<table>
+
+<thead>
+<tr>
+<th style="width:28%">Punto Crítico del Clima</th>
+<th style="width:24%">Indicador relevante (Índice de Malestar IIM)</th>
+<th>Decisión estratégica propuesta</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td class="critical">Déficit de liderazgo y clima de miedo</td>
+<td class="indicator">ISO Liderazgo KH 48 / Socado Tiendas IIM 95% trato inadecuado y clima hostil)</td>
+<td class="decision">Programa de Formación en Liderazgo, reuniones "Town Hall", workshop de Alineación Directiva. Definir umbrales de autonomía. Implementar programas de Reconocimientos. Programas de Bienestar. Implementar una Cultura “donde la persona importa”. Auditoría de comportamiento a líderes.</td>
+</tr>
+
+<tr>
+<td class="critical">Rigidez y falta de flexibilidad</td>
+<td class="indicator">Hasta 90% solicita esquemas híbridos</td>
+<td class="decision">Piloto Híbrido de 1 día de Home Office semanal para áreas administrativas. Early Friday. Desconexión digital. Días de Gestión Personal. Jornada Laboral Flex Navidad.</td>
+</tr>
+
+<tr>
+<td class="critical">Carga laboral excesiva / cultura de inmediatez (Burnout)</td>
+<td class="indicator">Company IIM 80–90% menciones de urgencia y retrabajo; CDP ISO 55</td>
+<td class="decision">Implementar EOS: Rocas, KPIs, planificación semanal clara. Denifir Ritmos de Gestión. Clarificación de Roles y Alcances (Matriz de Responsabilidades). Evitar la Cultura de Inmediatez. Implementar Programas de Salud y Bienestar. Desconexión digital. Objetivos Corporativos anuales</td>
+</tr>
+
+<tr>
+<td class="critical">Espacios físicos inadecuados</td>
+<td class="indicator">Valoración de Espacios en zona roja en oficinas</td>
+<td class="decision">Auditoría ergonómica y adecuación inmediata de puestos. Higiene Ambiental, limpieza profunda de espacios.</td>
+</tr>
+
+<tr>
+<td class="critical">Falta de desarrollo profesional (estancamiento)</td>
+<td class="indicator">KH IIM 100% mencionan falta de plan de carrera; CDP IIM 80%; Inveca Company IIM 85%</td>
+<td class="decision">Kaizen University, Mapas de carrera, Rutas técnicas por sede. Capacitaciones constantes</td>
+</tr>
+
+<tr>
+<td class="critical">Modelo de compensación desactualizado</td>
+<td class="indicator">Inveca, Socado CDP, Comercial 85%, reportan 3 años sin ajuste</td>
+<td class="decision">Ajustes Salariales de Emergencia en áreas críticas. Denifición de políticas de revisión salarial. Evaluación por Desempeño. Bono o beneficios de Movilidad y Logística (comercial). Implementación de nuevos beneficios. Beneficios de familia.</td>
+</tr>
+
+<tr>
+<td class="critical">Comunicación interna deficiente / unidireccional</td>
+<td class="indicator">IIM hasta el 85%, reporta falta de escucha; otras unidades mencionan órdenes sin anticipación</td>
+<td class="decision">Comunicaciones de Grupo, Embajadores, Town Halls mensuales, buzón de sugerencias, claridad ejecutiva</td>
+</tr>
+
+<tr>
+<td class="critical">Crisis de equidad y Meritocracia</td>
+<td class="indicator">Socado Tiendas IIM 100%</td>
+<td class="decision">Mapa de Talentos. Mapa de Carrera. Organigramas definidos. Comité de Movilidad Inter-Empresas. Auditoría de Equidad en Decisiones de ascensos.</td>
+</tr>
+
+<tr>
+<td class="critical">Falta de reconocimiento</td>
+<td class="indicator">IIM Reconocimiento hasta 58%</td>
+<td class="decision">Programa de reconocimiento: MVP del mes,bonos por KPIs, celebración de hitos transversal para todo el grupo, Buddy System, Embajadores de Marca, Kaizen University para todos, formación constante, comunicados en grupos internos.</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="cta-wrap">
+<a class="cta-button" href="https://logokhni.my.canva.site/informe-de-clima" target="_blank">
+Ver informe completo
+</a>
+</div>
+
+</div>
+
+</section>
+
+</div>
+</main>
+
+</body>
+</html>
