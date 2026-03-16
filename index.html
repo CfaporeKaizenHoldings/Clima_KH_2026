@@ -1,587 +1,384 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>One Page | Clima laboral 2026</title>
-  <style>
-    :root{
-      --bg:#f4f7fb;
-      --surface:#ffffff;
-      --surface-2:#f8fbfd;
-      --text:#142534;
-      --muted:#617180;
-      --line:#d9e3ec;
-      --brand:#223d53;
-      --brand-2:#3a6077;
-      --soft:#eaf2f8;
-      --danger:#b94c4c;
-      --shadow:0 18px 48px rgba(20,37,52,.08);
-      --radius-xl:28px;
-      --radius-lg:22px;
-      --radius-md:16px;
-      --max:1320px;
-    }
 
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at top right, rgba(34,61,83,.08), transparent 22%),
-        linear-gradient(180deg,#f8fbfd 0%,#eff4f8 100%);
-      line-height:1.35;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .wrap{width:min(var(--max), calc(100% - 40px)); margin:0 auto;}
+<title>One Page | Clima laboral 2026</title>
 
-    .page{
-      padding:24px 0 30px;
-    }
+<style>
 
-    .card{
-      background:rgba(255,255,255,.92);
-      border:1px solid rgba(255,255,255,.7);
-      border-radius:32px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
+:root{
+--bg:#f4f7fb;
+--surface:#ffffff;
+--text:#142534;
+--muted:#617180;
+--line:#d9e3ec;
+--brand:#223d53;
+--brand-2:#3a6077;
+--soft:#eaf2f8;
+--shadow:0 18px 48px rgba(20,37,52,.08);
+--max:1320px;
+}
 
-    .top{
-      padding:26px 30px 18px;
-      background:linear-gradient(180deg, rgba(255,255,255,.94), rgba(246,250,253,.96));
-      border-bottom:1px solid var(--line);
-    }
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
 
-    .title-row{
-      display:block;
-    }
+body{
+font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+color:var(--text);
+background:
+radial-gradient(circle at top right, rgba(34,61,83,.08), transparent 22%),
+linear-gradient(180deg,#f8fbfd 0%,#eff4f8 100%);
+line-height:1.35;
+}
 
-    .eyebrow{
-      display:inline-block;
-      padding:8px 12px;
-      border-radius:999px;
-      background:var(--soft);
-      color:var(--brand);
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      margin-bottom:14px;
-    }
+.wrap{
+width:min(var(--max), calc(100% - 40px));
+margin:0 auto;
+}
 
-    h1{
-      margin:0;
-      font-size:clamp(2rem, 4vw, 3.8rem);
-      line-height:.95;
-      letter-spacing:-.05em;
-      color:var(--brand);
-    }
+.page{
+padding:24px 0 30px;
+}
 
-    .intro{
-      margin:10px 0 0;
-      font-size:1rem;
-      color:var(--muted);
-      max-width:760px;
-    }
+.card{
+background:rgba(255,255,255,.92);
+border-radius:32px;
+box-shadow:var(--shadow);
+overflow:hidden;
+}
 
-    .hero-stats{
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:14px;
-      margin-top:20px;
-    }
+.top{
+padding:28px 30px 20px;
+border-bottom:1px solid var(--line);
+background:linear-gradient(180deg,#ffffff,#f7fbfe);
+}
 
-    .hero-stat,
-    .hero-stat-wide{
-      background:linear-gradient(180deg,#fff,#f8fbfd);
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:18px;
-      position:relative;
-      overflow:hidden;
-      transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
-      cursor:default;
-    }
+.eyebrow{
+display:inline-block;
+padding:8px 12px;
+border-radius:999px;
+background:var(--soft);
+color:var(--brand);
+font-size:12px;
+font-weight:800;
+letter-spacing:.08em;
+text-transform:uppercase;
+margin-bottom:14px;
+}
 
-    .hero-stat:hover,
-    .hero-stat-wide:hover,
-    .bar-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 18px 36px rgba(20,37,52,.10);
-      border-color:#c7d7e6;
-    }
+h1{
+margin:0;
+font-size:clamp(2rem,4vw,3.8rem);
+letter-spacing:-.05em;
+color:var(--brand);
+}
 
-    .hero-stat::after,
-    .hero-stat-wide::after,
-    .bar-fill::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,.0) 35%, rgba(255,255,255,.55) 50%, rgba(255,255,255,0) 65%, transparent 100%);
-      transform:translateX(-130%);
-      transition:transform .65s ease;
-      pointer-events:none;
-    }
+.subtitle{
+margin-top:6px;
+font-size:1rem;
+font-weight:600;
+color:var(--muted);
+}
 
-    .hero-stat:hover::after,
-    .hero-stat-wide:hover::after,
-    .bar-card:hover .bar-fill::after{
-      transform:translateX(130%);
-    }
+.intro{
+margin-top:12px;
+font-size:1rem;
+color:var(--muted);
+text-align:justify;
+}
 
-    .hero-stat-wide{
-      grid-column:span 1;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-    }
+.highlight-green{
+color:#2f7a3e;
+font-weight:800;
+}
 
-    .hero-label{
-      font-size:.8rem;
-      font-weight:700;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin-bottom:10px;
-    }
+.hero-stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px;
+margin-top:22px;
+}
 
-    .hero-value{
-      font-size:clamp(2rem,4vw,3.4rem);
-      line-height:.9;
-      letter-spacing:-.06em;
-      font-weight:800;
-      color:var(--brand);
-      margin-bottom:8px;
-    }
+.hero-stat{
+background:#fff;
+border:1px solid var(--line);
+border-radius:22px;
+padding:18px;
+transition:all .25s ease;
+}
 
-    .hero-meta{
-      color:var(--muted);
-      font-size:.88rem;
-      line-height:1.35;
-    }
+.hero-stat:hover{
+transform:translateY(-4px);
+box-shadow:0 18px 36px rgba(20,37,52,.10);
+}
 
-    .bars{
-      display:grid;
-      gap:12px;
-      margin-top:10px;
-    }
+.hero-label{
+font-size:.8rem;
+font-weight:700;
+text-transform:uppercase;
+color:var(--muted);
+margin-bottom:10px;
+}
 
-    .bar-card{
-      padding:12px 14px;
-      border:1px solid var(--line);
-      border-radius:18px;
-      background:#fff;
-      transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
-    }
+.hero-value{
+font-size:clamp(2rem,4vw,3.2rem);
+font-weight:800;
+letter-spacing:-.06em;
+color:var(--brand);
+}
 
-    .bar-head{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      align-items:center;
-      margin-bottom:8px;
-    }
+.hero-meta{
+margin-top:6px;
+color:var(--muted);
+font-size:.88rem;
+}
 
-    .bar-title{
-      font-size:.9rem;
-      font-weight:700;
-      color:var(--text);
-    }
+.content{
+padding:26px 30px 30px;
+}
 
-    .bar-num{
-      font-size:.95rem;
-      font-weight:800;
-      color:var(--brand);
-    }
+.main-table{
+background:#fff;
+border:1px solid var(--line);
+border-radius:24px;
+overflow:hidden;
+}
 
-    .bar-track{
-      width:100%;
-      height:10px;
-      border-radius:999px;
-      background:#e8eff5;
-      overflow:hidden;
-      position:relative;
-    }
+table{
+width:100%;
+border-collapse:collapse;
+}
 
-    .bar-fill{
-      height:100%;
-      border-radius:999px;
-      background:linear-gradient(90deg, var(--brand), var(--brand-2));
-      position:relative;
-      transition:filter .28s ease, transform .28s ease;
-      transform-origin:left center;
-    }
+thead th{
+text-align:left;
+padding:16px 18px;
+background:linear-gradient(180deg,#edf4f9,#e6eef5);
+color:var(--brand);
+font-size:.88rem;
+border-bottom:1px solid var(--line);
+}
 
-    .bar-card:hover .bar-fill{
-      filter:brightness(1.05);
-      transform:scaleY(1.18);
-    }
+tbody td{
+padding:16px 18px;
+border-bottom:1px solid var(--line);
+font-size:.93rem;
+vertical-align:top;
+}
 
-    .bar-note{
-      margin-top:6px;
-      font-size:.8rem;
-      color:var(--muted);
-    }
+tbody tr:last-child td{
+border-bottom:none;
+}
 
-    .content{
-      padding:22px 30px 30px;
-    }
+.critical{
+font-weight:700;
+color:var(--brand);
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:22px;
-      align-items:start;
-    }
+.indicator{
+color:#29485d;
+font-weight:600;
+}
 
-    .main-table{
-      background:var(--surface);
-      border:1px solid var(--line);
-      border-radius:24px;
-      overflow:hidden;
-    }
+.decision{
+color:#334856;
+}
 
-    table{
-      width:100%;
-      border-collapse:collapse;
-    }
+.cta-wrap{
+margin-top:26px;
+display:flex;
+justify-content:flex-end;
+}
 
-    thead th{
-      text-align:left;
-      padding:16px 18px;
-      background:linear-gradient(180deg,#edf4f9,#e6eef5);
-      color:var(--brand);
-      font-size:.88rem;
-      letter-spacing:-.01em;
-      vertical-align:bottom;
-      border-bottom:1px solid var(--line);
-    }
+.cta-button{
+background:var(--brand);
+color:#fff;
+text-decoration:none;
+padding:14px 24px;
+border-radius:999px;
+font-size:.9rem;
+font-weight:600;
+letter-spacing:.02em;
+box-shadow:0 10px 22px rgba(34,61,83,.18);
+transition:all .28s ease;
+}
 
-    tbody td{
-      padding:16px 18px;
-      vertical-align:top;
-      border-bottom:1px solid var(--line);
-      font-size:.93rem;
-    }
+.cta-button:hover{
+background:#2c506c;
+transform:translateY(-3px);
+box-shadow:0 18px 32px rgba(34,61,83,.25);
+}
 
-    tbody tr:last-child td{border-bottom:none}
+@media (max-width:1100px){
 
-    .critical{
-      font-weight:700;
-      color:var(--brand);
-      line-height:1.25;
-    }
+.hero-stats{
+grid-template-columns:repeat(2,1fr);
+}
 
-    .indicator{
-      color:#29485d;
-      font-weight:600;
-    }
+}
 
-    .decision{
-      color:#334856;
-    }
+@media (max-width:700px){
 
-    .side{display:none}
+.hero-stats{
+grid-template-columns:1fr;
+}
 
-    .side-card h2{
-      margin:0 0 8px;
-      font-size:1rem;
-      letter-spacing:-.02em;
-      color:var(--brand);
-    }
+.main-table{
+overflow:auto;
+}
 
-    .side-card p{
-      margin:0;
-      color:var(--muted);
-      font-size:.92rem;
-      line-height:1.45;
-    }
+table{
+min-width:860px;
+}
 
-    .focus-list{
-      display:grid;
-      gap:10px;
-      margin-top:14px;
-    }
+}
 
-    .focus-item{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      padding:10px 0;
-      border-top:1px solid var(--line);
-    }
-
-    .focus-item:first-child{border-top:none;padding-top:0}
-
-    .dot{
-      width:10px;height:10px;border-radius:999px;margin-top:6px;flex:0 0 auto;
-      background:linear-gradient(180deg,var(--brand),var(--brand-2));
-    }
-
-    .quote{
-      background:linear-gradient(135deg,#223d53 0%, #2b4a62 60%, #355d77 100%);
-      color:#fff;
-    }
-
-    .quote h2,.quote p{color:#fff}
-    .quote p{opacity:.9}
-
-    .bottom{
-      margin-top:22px;
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:22px;
-      align-items:stretch;
-    }
-
-    .participation{
-      background:linear-gradient(180deg,#fff,#f8fbfd);
-      border:1px solid var(--line);
-      border-radius:28px;
-      padding:24px;
-    }
-
-    .participation h2,
-    .coverage h2{
-      margin:0 0 10px;
-      font-size:1.2rem;
-      letter-spacing:-.03em;
-      color:var(--brand);
-    }
-
-    .participation p,
-    .coverage p{
-      margin:0;
-      color:var(--muted);
-      font-size:.95rem;
-      line-height:1.5;
-    }
-
-    .perc-grid{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-    }
-
-    .perc-card{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:18px;
-      text-align:center;
-    }
-
-    .perc{
-      font-size:clamp(2rem,4vw,3.2rem);
-      line-height:.9;
-      letter-spacing:-.06em;
-      font-weight:800;
-      color:var(--brand);
-      margin-bottom:8px;
-    }
-
-    .perc-card strong{
-      display:block;
-      font-size:.97rem;
-      color:var(--text);
-      margin-bottom:4px;
-    }
-
-    .perc-card span{
-      display:block;
-      font-size:.85rem;
-      color:var(--muted);
-      line-height:1.35;
-    }
-
-    .coverage{
-      background:linear-gradient(180deg,#ffffff,#f8fbfd);
-      border:1px solid var(--line);
-      border-radius:28px;
-      padding:24px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-    }
-
-    .coverage .big{
-      margin-top:18px;
-      font-size:4.4rem;
-      line-height:.9;
-      letter-spacing:-.07em;
-      font-weight:800;
-      color:var(--brand);
-    }
-
-    .coverage .big-label{
-      margin-top:6px;
-      color:var(--muted);
-      font-size:.95rem;
-    }
-
-    .footer-note{
-      padding:14px 4px 0;
-      color:#7b8a97;
-      font-size:.8rem;
-      text-align:right;
-    }
-
-    @media (max-width: 1160px){
-      .grid,.bottom,.title-row{grid-template-columns:1fr}
-      .hero-stats{grid-template-columns:repeat(2, 1fr)}
-    }
-
-    @media (max-width: 840px){
-      .wrap{width:min(var(--max), calc(100% - 20px));}
-      .top,.content{padding:20px}
-      tbody td, thead th{padding:14px}
-      .main-table{overflow:auto}
-      table{min-width:860px}
-      .hero-stats{grid-template-columns:1fr}
-    }
-
-    @media print{
-      body{background:#fff}
-      .card,.side-card,.participation,.coverage,.main-table{box-shadow:none}
-      .page{padding:0}
-    }
-  </style>
+</style>
 </head>
+
 <body>
-  <main class="page">
-    <div class="wrap">
-      <section class="card">
-        <div class="top">
-          <div class="title-row">
-            <div>
-              <div class="eyebrow">One Page Ejecutivo</div>
-              <h1>Clima laboral 2026</h1>
-              <p class="intro">La primera evaluación de clima alcanzó una participación global del 86%, consolidando la opinión de 213 colaboradores. Este alto nivel de respuesta garantiza que los resultados son estadísticamente representativos y reflejan el sentir genuino de la organización.</p>
-            </div>
-          </div>
 
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <div class="hero-label">Socado</div>
-              <div class="hero-value">93%</div>
-              <div class="hero-meta">119 de 134 trabajadores</div>
-            </div>
-            <div class="hero-stat">
-              <div class="hero-label">Corporación Inveca</div>
-              <div class="hero-value">89%</div>
-              <div class="hero-meta">71 de 76 trabajadores</div>
-            </div>
-            <div class="hero-stat">
-              <div class="hero-label">Kaizen Holdings</div>
-              <div class="hero-value">64%</div>
-              <div class="hero-meta">23 de 36 trabajadores</div>
-            </div>
-            <div class="hero-stat-wide">
-              <div>
-                <div class="hero-label">Participación global</div>
-                <div class="hero-value">86%</div>
-                <div class="hero-meta">213 colaboradores participaron en la evaluación.</div>
-              </div>
-            </div>
-          </div>
+<main class="page">
+<div class="wrap">
 
-          <div class="bars">
-            <div class="bar-card">
-              <div class="bar-head">
-                <div class="bar-title">Socado</div>
-                <div class="bar-num">93%</div>
-              </div>
-              <div class="bar-track"><div class="bar-fill" style="width:93%"></div></div>
-              <div class="bar-note">119 de 134 trabajadores</div>
-            </div>
-            <div class="bar-card">
-              <div class="bar-head">
-                <div class="bar-title">Corporación Inveca</div>
-                <div class="bar-num">89%</div>
-              </div>
-              <div class="bar-track"><div class="bar-fill" style="width:89%"></div></div>
-              <div class="bar-note">71 de 76 trabajadores</div>
-            </div>
-            <div class="bar-card">
-              <div class="bar-head">
-                <div class="bar-title">Kaizen Holdings</div>
-                <div class="bar-num">64%</div>
-              </div>
-              <div class="bar-track"><div class="bar-fill" style="width:64%"></div></div>
-              <div class="bar-note">23 de 36 trabajadores</div>
-            </div>
-          </div>
-        </div>
+<section class="card">
 
-        <div class="content">
-          <div class="grid">
-            <div class="main-table">
-              <table>
-                <thead>
-                  <tr>
-                    <th style="width:28%">Punto Crítico del Clima</th>
-                    <th style="width:24%">Indicador relevante (Índice de Malestar IIM)</th>
-                    <th>Decisión estratégica propuesta</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="critical">Déficit de liderazgo y clima de miedo</td>
-                    <td class="indicator">ISO Liderazgo KH 48 / Socado Tiendas IIM 95% trato inadecuado y clima hostil)</td>
-                    <td class="decision">Programa de Formación en Liderazgo, reuniones "Town Hall", workshop de Alineación Directiva. Definir umbrales de autonomía. Implementar programas de Reconocimientos. Programas de Bienestar. Implementar una Cultura “donde la persona importa”. Auditoría de comportamiento a líderes.</td>
-                  </tr>
-                  <tr>
-                    <td class="critical">Rigidez y falta de flexibilidad</td>
-                    <td class="indicator">Hasta 90% solicita esquemas híbridos</td>
-                    <td class="decision">Piloto Híbrido de 1 día de Home Office semanal para áreas administrativas. Early Friday. Desconexión digital. Días de Gestión Personal. Jornada Laboral Flex Navidad.</td>
-                  </tr>
-                  <tr>
-                    <td class="critical">Carga laboral excesiva / cultura de inmediatez (Burnout)</td>
-                    <td class="indicator">Company IIM 80–90% menciones de urgencia y retrabajo; CDP ISO 55</td>
-                    <td class="decision">Implementar EOS: Rocas, KPIs, planificación semanal clara. Denifir Ritmos de Gestión. Clarificación de Roles y Alcances (Matriz de Responsabilidades). Evitar la Cultura de Inmediatez. Implementar Programas de Salud y Bienestar. Desconexión digital. Objetivos Corporativos anuales</td>
-                  </tr>
-                  <tr>
-                    <td class="critical">Espacios físicos inadecuados</td>
-                    <td class="indicator">Valoración de Espacios en zona roja en oficinas</td>
-                    <td class="decision">Auditoría ergonómica y adecuación inmediata de puestos. Higiene Ambiental, limpieza profunda de espacios.</td>
-                  </tr>
-                  <tr>
-                    <td class="critical">Falta de desarrollo profesional (estancamiento)</td>
-                    <td class="indicator">KH IIM 100% mencionan falta de plan de carrera; CDP IIM 80%; Inveca Company IIM 85%</td>
-                    <td class="decision">Kaizen University, Mapas de carrera, Rutas técnicas por sede. Capacitaciones constantes</td>
-                  </tr>
-                  <tr>
-                    <td class="critical">Modelo de compensación desactualizado</td>
-                    <td class="indicator">Inveca, Socado CDP, Comercial 85%, reportan 3 años sin ajuste</td>
-                    <td class="decision">Ajustes Salariales de Emergencia en áreas críticas. Denifición de políticas de revisión salarial. Evaluación por Desempeño. Bono o beneficios de Movilidad y Logística (comercial). Implementación de nuevos beneficios. Beneficios de familia.</td>
-                  </tr>
-                  <tr>
-                    <td class="critical">Comunicación interna deficiente / unidireccional</td>
-                    <td class="indicator">IIM hasta el 85%, reporta falta de escucha; otras unidades mencionan órdenes sin anticipación</td>
-                    <td class="decision">Comunicaciones de Grupo, Embajadores, Town Halls mensuales, buzón de sugerencias, claridad ejecutiva</td>
-                  </tr>
-                  <tr>
-                    <td class="critical">Crisis de equidad y Meritocracia</td>
-                    <td class="indicator">Socado Tiendas IIM 100%</td>
-                    <td class="decision">Mapa de Talentos. Mapa de Carrera. Organigramas definidos. Comité de Movilidad Inter-Empresas. Auditoría de Equidad en Decisiones de ascensos.</td>
-                  </tr>
-                  <tr>
-                    <td class="critical">Falta de reconocimiento</td>
-                    <td class="indicator">IIM Reconocimiento hasta 58%</td>
-                    <td class="decision">Programa de reconocimiento: MVP del mes,bonos por KPIs, celebración de hitos transversal para todo el grupo, Buddy System, Embajadores de Marca, Kaizen University para todos, formación constante, comunicados en grupos internos.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+<div class="top">
 
-          <div class="footer-note">Versión HTML estructurada para lectura ejecutiva del director.</div>
-        </div>
-      </section>
-    </div>
-  </main>
+<div class="eyebrow">One Page Ejecutivo</div>
+
+<h1>Clima laboral 2026</h1>
+
+<div class="subtitle">Kaizen Holdings, Inveca, Socado</div>
+
+<p class="intro">
+La primera evaluación de clima alcanzó una participación global del
+<span class="highlight-green">86%</span>,
+consolidando la opinión de <strong>213 colaboradores</strong>.
+Este alto nivel de respuesta garantiza que los resultados son estadísticamente representativos y reflejan el sentir genuino de la organización.
+</p>
+
+<div class="hero-stats">
+
+<div class="hero-stat">
+<div class="hero-label">Socado</div>
+<div class="hero-value">93%</div>
+<div class="hero-meta">119 de 134 trabajadores</div>
+</div>
+
+<div class="hero-stat">
+<div class="hero-label">Corporación Inveca</div>
+<div class="hero-value">89%</div>
+<div class="hero-meta">71 de 76 trabajadores</div>
+</div>
+
+<div class="hero-stat">
+<div class="hero-label">Kaizen Holdings</div>
+<div class="hero-value">64%</div>
+<div class="hero-meta">23 de 36 trabajadores</div>
+</div>
+
+<div class="hero-stat">
+<div class="hero-label">Participación global</div>
+<div class="hero-value">86%</div>
+<div class="hero-meta">213 colaboradores participaron en la evaluación.</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="content">
+
+<div class="main-table">
+
+<table>
+
+<thead>
+<tr>
+<th style="width:28%">Punto Crítico del Clima</th>
+<th style="width:24%">Indicador relevante (Índice de Malestar IIM)</th>
+<th>Decisión estratégica propuesta</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td class="critical">Déficit de liderazgo y clima de miedo</td>
+<td class="indicator">ISO Liderazgo KH 48 / Socado Tiendas IIM 95% trato inadecuado y clima hostil)</td>
+<td class="decision">Programa de Formación en Liderazgo, reuniones "Town Hall", workshop de Alineación Directiva. Definir umbrales de autonomía. Implementar programas de Reconocimientos. Programas de Bienestar. Implementar una Cultura “donde la persona importa”. Auditoría de comportamiento a líderes.</td>
+</tr>
+
+<tr>
+<td class="critical">Rigidez y falta de flexibilidad</td>
+<td class="indicator">Hasta 90% solicita esquemas híbridos</td>
+<td class="decision">Piloto Híbrido de 1 día de Home Office semanal para áreas administrativas. Early Friday. Desconexión digital. Días de Gestión Personal. Jornada Laboral Flex Navidad.</td>
+</tr>
+
+<tr>
+<td class="critical">Carga laboral excesiva / cultura de inmediatez (Burnout)</td>
+<td class="indicator">Company IIM 80–90% menciones de urgencia y retrabajo; CDP ISO 55</td>
+<td class="decision">Implementar EOS: Rocas, KPIs, planificación semanal clara. Denifir Ritmos de Gestión. Clarificación de Roles y Alcances (Matriz de Responsabilidades). Evitar la Cultura de Inmediatez. Implementar Programas de Salud y Bienestar. Desconexión digital. Objetivos Corporativos anuales</td>
+</tr>
+
+<tr>
+<td class="critical">Espacios físicos inadecuados</td>
+<td class="indicator">Valoración de Espacios en zona roja en oficinas</td>
+<td class="decision">Auditoría ergonómica y adecuación inmediata de puestos. Higiene Ambiental, limpieza profunda de espacios.</td>
+</tr>
+
+<tr>
+<td class="critical">Falta de desarrollo profesional (estancamiento)</td>
+<td class="indicator">KH IIM 100% mencionan falta de plan de carrera; CDP IIM 80%; Inveca Company IIM 85%</td>
+<td class="decision">Kaizen University, Mapas de carrera, Rutas técnicas por sede. Capacitaciones constantes</td>
+</tr>
+
+<tr>
+<td class="critical">Modelo de compensación desactualizado</td>
+<td class="indicator">Inveca, Socado CDP, Comercial 85%, reportan 3 años sin ajuste</td>
+<td class="decision">Ajustes Salariales de Emergencia en áreas críticas. Denifición de políticas de revisión salarial. Evaluación por Desempeño. Bono o beneficios de Movilidad y Logística (comercial). Implementación de nuevos beneficios. Beneficios de familia.</td>
+</tr>
+
+<tr>
+<td class="critical">Comunicación interna deficiente / unidireccional</td>
+<td class="indicator">IIM hasta el 85%, reporta falta de escucha; otras unidades mencionan órdenes sin anticipación</td>
+<td class="decision">Comunicaciones de Grupo, Embajadores, Town Halls mensuales, buzón de sugerencias, claridad ejecutiva</td>
+</tr>
+
+<tr>
+<td class="critical">Crisis de equidad y Meritocracia</td>
+<td class="indicator">Socado Tiendas IIM 100%</td>
+<td class="decision">Mapa de Talentos. Mapa de Carrera. Organigramas definidos. Comité de Movilidad Inter-Empresas. Auditoría de Equidad en Decisiones de ascensos.</td>
+</tr>
+
+<tr>
+<td class="critical">Falta de reconocimiento</td>
+<td class="indicator">IIM Reconocimiento hasta 58%</td>
+<td class="decision">Programa de reconocimiento: MVP del mes,bonos por KPIs, celebración de hitos transversal para todo el grupo, Buddy System, Embajadores de Marca, Kaizen University para todos, formación constante, comunicados en grupos internos.</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="cta-wrap">
+<a class="cta-button" href="https://logokhni.my.canva.site/informe-de-clima" target="_blank">
+Ver informe completo
+</a>
+</div>
+
+</div>
+
+</section>
+
+</div>
+</main>
+
 </body>
 </html>
